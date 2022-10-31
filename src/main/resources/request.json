@@ -1,0 +1,36 @@
+{
+
+"companyId": "TATA",
+"occupationInfo": [{
+	"occupationNature": "full time",
+	"designation": "Sales Personal",
+	"yearsOfOccupation": 2,
+	"typeOfCompany": "private undertaking",
+	"companyName": ""
+}],
+"addressInfo":{
+	"pinCode": 204212,
+	"street": "",
+	"state": "Uttar Pradesh",
+	"city": "Agra",
+    "country": "India"
+},
+"familyInfo": [{
+		"relation": "Father",
+		"isBloodRelative": true
+}],
+"healthInfo": {
+	"weight": 56.6,
+	"height": 210,
+	"age": 34.5,
+	"bloodGroup": "B-",
+    "bloodPressure": 120,
+	"healthHistory": [{
+			"disease": "Cholera",
+			"isCured": true,
+			"organAffected": "Liver"
+	}]
+},
+"@type": "LifeInsuranceApplication"
+
+}
