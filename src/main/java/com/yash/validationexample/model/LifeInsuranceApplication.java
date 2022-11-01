@@ -14,15 +14,13 @@ import javax.validation.constraints.NotNull;
 import com.yash.validationexample.validators.LifeInsuranceConditional;
 
 import lombok.AllArgsConstructor;
-import lombok.Getter;
 import lombok.Setter;
 
 
 @AllArgsConstructor
-@Getter
 @Setter
 @Entity
-@LifeInsuranceConditional(field = "companyId", fieldValue = "HDFC", notRequired = {"occupationInfo.companyName"}, message = "comanyName is required for insureance provider HDFC")
+@LifeInsuranceConditional(field = "companyId", fieldValue = "HDFC", notRequired = {"occupationInfo[0].companyName"}, message = "comanyName is required for insureance provider HDFC")
 public class LifeInsuranceApplication extends InsuranceApplication {
 
 	@NotNull(message = OCCUPATION_INFO_CAN_NOT_BE_EMPTY)
@@ -38,4 +36,23 @@ public class LifeInsuranceApplication extends InsuranceApplication {
 	@Valid
 	@OneToOne
 	HealthInfo healthInfo;
+
+	public List<OccupationInfo> getOccupationInfo() {
+		return occupationInfo;
+	}
+
+	public AddressInfo getAddressInfo() {
+		return addressInfo;
+	}
+
+	public List<FamilyInfo> getFamilyInfo() {
+		return familyInfo;
+	}
+
+	public HealthInfo getHealthInfo() {
+		return healthInfo;
+	}
+	
+	
+	
 }

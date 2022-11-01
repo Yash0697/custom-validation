@@ -83,7 +83,7 @@ public class LifeInsuranceConditionalValidator implements ConstraintValidator<Li
 				Field[] fields = LifeInsuranceApplication.class.getDeclaredFields();
 				Field appField = null;
 				for (Field declaredField : fields) {
-					if (declaredField.getName().equals(propertyHeirarchyLevelOne)) {
+					if (declaredField.getName().equals(propertyHeirarchyLevelOne.substring(0, propertyHeirarchyLevelOne.length() - 3))) {
 						appField = declaredField;
 						appField.setAccessible(true);
 						break;
@@ -91,10 +91,10 @@ public class LifeInsuranceConditionalValidator implements ConstraintValidator<Li
 				}
 				if (List.class.isAssignableFrom(appField.getType())) {
 					@SuppressWarnings("rawtypes")
-					List list = (List) PropertyUtils.getProperty(object, propertyHeirarchyLevelOne);
+					List list = (List) PropertyUtils.getProperty(object, propertyHeirarchyLevelOne.substring(0, propertyHeirarchyLevelOne.length() - 3));
 					if(list.size() > 0) {
 						 Character first = propertyHeirarchyLevelOne.charAt(0);
-						 String camelCase = Character.toUpperCase(first) + new StringBuilder(propertyHeirarchyLevelOne).deleteCharAt(0).toString();
+						 String camelCase = Character.toUpperCase(first) + new StringBuilder(propertyHeirarchyLevelOne.substring(0, propertyHeirarchyLevelOne.length() - 3)).deleteCharAt(0).toString();
 						 
 						 for(Object item: list) {
 							 String propertyValue = BeanUtils.getProperty(item, propertyHeirarchy[1]);
